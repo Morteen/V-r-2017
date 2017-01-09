@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KulturController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\userController.cs" />
@@ -205,6 +206,8 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Kultur.cs" />
+    <Compile Include="Models\KulturContext.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -273,6 +276,11 @@
     <Content Include="Views\Role\Edit.cshtml" />
     <Content Include="Views\Role\ManageUserRoles.cshtml" />
     <Content Include="Views\user\Index.cshtml" />
+    <Content Include="Views\Kultur\Index.cshtml" />
+    <Content Include="Views\Kultur\Details.cshtml" />
+    <Content Include="Views\Kultur\Create.cshtml" />
+    <Content Include="Views\Kultur\Edit.cshtml" />
+    <Content Include="Views\Kultur\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

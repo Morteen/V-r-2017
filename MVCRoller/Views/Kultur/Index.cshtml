@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MVCRoller.Models.Kultur>
+
+@{
+    ViewBag.Title = "Kultur Index";
+}
+
+<h2>Oversikt over systemer i kultursektoren</h2>
+
+<p>
+    @Html.ActionLink("Legg til en ny oppføring", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeAktivitet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ansvarlig)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.System)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndretDato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MasterData)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeAktivitet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ansvarlig)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.System)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndretDato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MasterData)
+        </td>
+        <td>
+            @Html.ActionLink("Endre", "Edit", new { id=item.KulturId }) |
+            @Html.ActionLink("Detaljer", "Details", new { id=item.KulturId }) |
+            @Html.ActionLink("Slett", "Delete", new { id=item.KulturId })
+        </td>
+    </tr>
+}
+
+</table>

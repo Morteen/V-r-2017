@@ -1,0 +1,58 @@
+﻿@model MVCRoller.Models.Kultur
+
+@{
+    ViewBag.Title = "Detaljer";
+}
+
+<h2>Detaljer</h2>
+
+<div>
+    <h4>Kultur</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeAktivitet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeAktivitet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ansvarlig)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ansvarlig)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.System)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.System)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndretDato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndretDato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MasterData)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MasterData)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Endre", "Edit", new { id = Model.KulturId }) |
+    @Html.ActionLink("Tilbake til listen", "Index")
+</p>

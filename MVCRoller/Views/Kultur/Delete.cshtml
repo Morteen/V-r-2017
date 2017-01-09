@@ -1,0 +1,64 @@
+﻿@model MVCRoller.Models.Kultur
+
+@{
+    ViewBag.Title = "Slett opplysninger";
+}
+
+<h2>Slett opplysninger</h2>
+
+<h3>Er du sikker på at du vil slette denne oppføringen?</h3>
+<div>
+    <h4>Kultur</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeAktivitet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeAktivitet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ansvarlig)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ansvarlig)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.System)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.System)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndretDato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndretDato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MasterData)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MasterData)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Tilbake til listen", "Index")
+        </div>
+    }
+</div>
