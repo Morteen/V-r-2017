@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityUser>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste over brukere </h2>
+
+
+<hr />
+<div>
+    @foreach (var users in Model)
+    {
+        <p>
+            <strong>@users.UserName | </strong>
+           
+            @Html.ActionLink("Edit", "Edit", new { UsersName = @users.UserName })
+        </p>
+    }
+</div>

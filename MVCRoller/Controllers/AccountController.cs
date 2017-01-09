@@ -1,7 +1,4 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -9,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MVCRoller.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace MVCRoller.Controllers
 {
@@ -20,7 +18,10 @@ namespace MVCRoller.Controllers
 
         public AccountController()
         {
+
         }
+         
+        
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
@@ -40,10 +41,17 @@ namespace MVCRoller.Controllers
             }
         }
 
+       
         public ApplicationUserManager UserManager
         {
             get
             {
+                if (_userManager == null && HttpContext == null)
+
+                {
+                    return new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                    //return new ApplicationUserManager(new Microsoft.AspNet.Identity.EntityFramework.UserStore<ApplicationUser>());
+                }
                 return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
@@ -151,7 +159,8 @@ namespace MVCRoller.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -483,3 +492,5 @@ namespace MVCRoller.Controllers
         #endregion
     }
 }
+
+
